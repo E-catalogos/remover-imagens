@@ -92,7 +92,7 @@ const execute = async (data) => {
     let countMoveds = 0
 
     allImages.map((item) => {
-        if (usedImages.filter(image => image === item).length > 0) {
+        if (!usedImages.filter(image => image === item).length > 0) {
             try {
                 fs.renameSync(`${__dirname}/${originDirectory}/${item}`, `${__dirname}/${destinationDirectory}/${item}`)
                 return countMoveds++;
