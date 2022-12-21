@@ -11,6 +11,7 @@ const validateParams = (data) => (!data.originDirectory || !data.destinationDire
 const validatePaths = (data) => {
     // Listando o nome de todos os arquivos no diretório de origem
     let allImages
+
     try {
         allImages = fs.readdirSync(__dirname + `/${data.originDirectory}`)
     } catch (error) {
@@ -44,7 +45,7 @@ const handleConfirmCommand = async (data) => {
         await inquirer.prompt([{
             name: 'confirmPaths',
             message: `Confirme se o diretório de origem e o de destino estão corretos.
-            \n- Diretório de origem: "${__dirname + `/${data.originDirectory}`}"\n- Diretório de destino: "${__dirname + `/${data.destinationDirectory}`}"\n- Arquivo JSON: "${__dirname + `/${data.archive_json}}"`}
+            \n- Diretório de origem: "${__dirname + `/${data.originDirectory}`}"\n- Diretório de destino: "${__dirname + `/${data.destinationDirectory}`}"\n- Arquivo JSON: "${__dirname + `/${data.archive_json}"`}
             \nOs caminhos estão corretos?`,
             type: 'confirm'
         }]).then((answerPaths) => confirmCommand = answerPaths.confirmPaths)
@@ -89,6 +90,7 @@ const execute = async (data) => {
 
     //  Movendo as imagens para o novo diretório
     let countMoveds = 0
+
     allImages.map((item) => {
         if (usedImages.filter(image => image === item).length > 0) {
             try {
@@ -100,7 +102,7 @@ const execute = async (data) => {
         }
     })
 
-    console.log(chalk.bgGreenBright(`Operação concluída.`))
+    console.log(chalk.green(`Operação concluída.`))
     console.log(chalk.greenBright(`Foram movidos ${countMoveds} de ${usedImages.length} arquivos.`))
 }
 
