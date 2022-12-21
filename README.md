@@ -6,6 +6,14 @@
 
 ## Modo de usar
 
+### Execução
+ ```
+  1. Baixe o arquivo .zip e descompacte-o
+  2. cd remover-imagens
+  3. npm install
+  4. node app.mjs
+ ```
+
 Para usar o sistema, é necessário ter previamente definido:
 
 - Diretório de **origem**
@@ -23,6 +31,10 @@ Para usar o sistema, é necessário ter previamente definido:
         "2463_1655917137q9rxjvoubrhe4fpinqillk.png",
       ]
     ```
+    
+  ### Demonstração 
+  
+  ![enter image description here](https://github.com/E-catalogos/remover-imagens/blob/main/demonstracao.png?raw=true)
  
 
 
